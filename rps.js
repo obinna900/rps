@@ -26,5 +26,20 @@ function getComputerChoice() {
   
 
 function playerChoice() {
-    return "Rock"
+    let input = prompt("stype Rock, Paper, or Scissors");
+    while (input == null) { 
+      input = prompt("type Rock, Paper, or Scissors");
+    }
+    input = input.toLowerCase();
+    let check = validateInput(input);
+    while (check == false) {
+      input = prompt("Spelling needs to be exact, but capitalization doesn't matter");   
+    
+      while (input == null) {
+        input = prompt("type Rock, Paper, or Scissors"); 
+      }
+      input = input.toLowerCase();
+      check = validateInput(input);
+  }
+    console.log(input);
 }
