@@ -26,7 +26,7 @@ function getComputerChoice() {
   
 
 function playerChoice() {
-    let input = prompt("stype Rock, Paper, or Scissors");
+    let input = prompt("type Rock, Paper, or Scissors");
     while (input == null) { 
       input = prompt("type Rock, Paper, or Scissors");
     }
