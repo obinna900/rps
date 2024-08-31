@@ -3,12 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors</title>
+        <link rel='stylesheet' href='rps.css'/>
         
     </head>
     <body>
         <div class="flex-container">
             <h1>Rock Paper Scissors</h1>
-            <button onclick="game()">Play</button>
+            <input type="button" id="Play" value="Play">
+            <input type="button" id="Rock" value="Rock">
+            <input type="button" id="Paper" value="Paper">
+            <input type="button" id="Scissors" value="Scissors">
+        </div>
+        
+        <div class="score">
+            <div class="playerWins">
+                <h2>Player</h2>
+                <p class="p-count count">0</p>
+            </div>
+            <div class="computerWins">
+                <h2>Computer</h2>
+                <p class="c-count count">0</p>
+            </div>
         </div>
         <script src="rps.js"></script>
     </body> 

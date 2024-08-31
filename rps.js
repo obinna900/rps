@@ -1,45 +1,43 @@
-const choices = ["rock", "paper", "scissors"];
-const winners = [];
+let choices = ["rock", "paper", "scissors"];
+let winners = [];
+let playerWins = 0;
+let computerWins = 0;
+let scoreElement = document.getElementById("score");
 
-function game() {
- for (let i = 1; i <= 5; i++) {
-    playRound(i);
-  }
-  logWinner();
+
+function playerChoice() {
+  let Rock = document.getElementById("Rock");
+  Rock.addEventListener('click', function() {
+    return ('rock');
+  }); 
+
+  let Paper = document.getElementById("Paper");
+  Paper.addEventListener('click', function() {
+    return ('paper');
+  }); 
+
+  let Scissors = document.getElementById("Scissors");
+  Scissors.addEventListener('click', function() {
+    return ('scissors');
+  });   
 }
-game();
 
 function playRound(round) {
-    const playerSelection = playerChoice();
-    const computerSelection = getComputerChoice();
-    const winner = checkWinner(playerSelection, computerSelection);
-    console.log(playerSelection, computerSelection);
+    let Play = document.getElementById('Play');
+    let playerSelection = playerChoice();
+    let computerSelection = getComputerChoice();
+    let winner = checkWinner(playerSelection, computerSelection);
+    console.log(playRound);
     winners.push(winner);
     logRound(playerSelection, computerSelection, winner, round);
 }
+ playRound();
  
 function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)]   
 }
   
-function playerChoice() {
-    let input = prompt("type Rock, Paper, or Scissors");
-    while (input == null) { 
-      input = prompt("type Rock, Paper, or Scissors");
-    }
-    input = input.toLowerCase();
-      let check = validateInput(input);
-    while (check == false) {
-      input = prompt("Spelling needs to be exact, but capitalization doesn't matter");   
-    
-      while (input == null) {
-        input = prompt("type Rock, Paper, or Scissors"); 
-      }
-      input = input.toLowerCase();
-      check = validateInput(input);
-  }
-    return input;
-}
+
 
 function validateInput(choice) {
   return choices.includes(choice);
@@ -79,4 +77,14 @@ function logRound(playerChoice, computerChoice, winner, round) {
   console.log("Computer chose:", computerChoice);
   console.log(winner, "Won the round");
   console.log("-----------------------------");
+}
+
+function resetGame() {
+  playerWins = 0;
+  computerWins = 0;
+  displayScore();
+}
+
+function displayScore() {
+  scoreElement.innerHTML = `Score: You ${ playerWins }, Computer ${ computerWins }`;
 }
